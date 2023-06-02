@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %} 特休天數查詢 {% endblock %}
+{% block content%}
+<!-- {% for vlist in vendor_list %}
+  <h1> 店家 : {{vlist.vendor_name}} </h1>
+  <ul>
+    <li>店名 : {{ vlist.store_name}}</li>
+    <li>電話 : {{ vlist.phone_number}}</li>
+    <li>地址 : {{ vlist.address}}</li>
+  </ul>
+{% endfor %} -->
+<form action="{% url 'spacial_holiday' %}" method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+  <h2>特休天數查詢</h2>
+  <input type="text" placeholder="請輸入ID" name="query_id"/>
+  <input type="text" placeholder="請輸入年份" name="query_year"/>
+  <input type=submit value="查詢">
+</form>
+{% block result %}
+{% endblock %}
+
+{% endblock %}

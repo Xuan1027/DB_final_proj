@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %} 檔案上傳 {% endblock %}
+{% block content%}
+<!-- {% for vlist in vendor_list %}
+  <h1> 店家 : {{vlist.vendor_name}} </h1>
+  <ul>
+    <li>店名 : {{ vlist.store_name}}</li>
+    <li>電話 : {{ vlist.phone_number}}</li>
+    <li>地址 : {{ vlist.address}}</li>
+  </ul>
+{% endfor %} -->
+<h1><b>注意!!!!!!! 請勿上傳</b></h1>
+<p>尚未完成測試，直接上傳會導致錯誤</p>
+<form action="{% url 'upload_page' %}" method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+  <p>特休天數表</p><input type="file", name="DayOffDep">
+  <br/>
+  <p>部門</p><input type="file", name="Department">
+  <br/>
+  <p>員工</p><input type="file", name="Employee">
+  <br/>
+  <p>休假表</p><input type="file", name="DayOff">
+  <br/>
+  <p>上班時數</p><input type="file", name="CheckIn">
+  <br/>
+  <p>計畫</p><input type="file", name="Project">
+  <br/>
+  <p>薪資表</p><input type="file", name="Salary">
+  <br/>
+  <!-- <input type=submit value="開始上傳"> -->
+</form>
+
+{% endblock %}

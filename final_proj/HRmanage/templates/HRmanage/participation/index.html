@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %} 部門參與計畫查詢 {% endblock %}
+{% block content%}
+<!-- {% for vlist in vendor_list %}
+  <h1> 店家 : {{vlist.vendor_name}} </h1>
+  <ul>
+    <li>店名 : {{ vlist.store_name}}</li>
+    <li>電話 : {{ vlist.phone_number}}</li>
+    <li>地址 : {{ vlist.address}}</li>
+  </ul>
+{% endfor %} -->
+<form action="{% url 'participation' %}" method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+  <h2>部門參與計畫查詢</h2>
+  <select name="query_dep">
+    {% for department in departments %}
+    <option value="{{ department.name }}" >{{ department.name }}</option>
+    {% endfor %}
+  </select>
+  <input type=submit value="查詢">
+</form>
+{% block result %}
+{% endblock %}
+
+{% endblock %}

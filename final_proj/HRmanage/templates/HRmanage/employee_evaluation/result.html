@@ -1,0 +1,32 @@
+{% extends "HRmanage/employee_evaluation/index.html" %}
+{% block result %}
+
+<h3>工作時數</h3>
+<table width="300">
+  <tr>
+    <td>日期</td>
+    <td>當日時數</td>
+  </tr>
+  {% for entry in worktime %}
+  <tr>
+    <td>{{ entry.date }}</td>
+    <td>{{ entry.time_delta }}</td>
+  </tr>
+  {% endfor %}
+</table>
+
+<h3>參與計畫</h3>
+<table width="400">
+  <tr>
+    <td>計畫名稱</td>
+    <td>截止日期</td>
+  </tr>
+  {% for entry in projects %}
+  <tr>
+    <td>{{ entry.name }}</td>
+    <td>{{ entry.deadline }}</td>
+  </tr>
+  {% endfor %}
+</table>
+
+{% endblock %}

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %} {% endblock %}</title>
+  </head>
+  <body>
+    <table width="800">
+      <tr>
+        <td>
+          <a href="{% url 'upload_page' %}"> 上傳檔案 </a>
+        </td>
+        <td>
+          <a href="{% url 'employee_evaluation' %}">員工績效評級</a>
+        </td>
+        <td>
+          <a href="{% url 'overtime_pay' %}">加班費計算</a>
+        </td>
+        <td>
+          <a href="{% url 'vacancies' %}">職缺查詢</a>
+        </td>
+        <td>
+          <a href="{% url 'spacial_holiday' %}">特休天數查詢</a>
+        </td>
+        <td>
+          <a href="{% url 'participation' %}">部門參與計畫查詢</a>
+        </td>
+      </tr>
+    </table>
+    {% block content %}
+    {% endblock %}
+  </body>
+</html>

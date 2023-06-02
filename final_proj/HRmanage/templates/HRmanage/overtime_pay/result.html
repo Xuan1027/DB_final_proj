@@ -1,0 +1,21 @@
+{% extends "HRmanage/overtime_pay/index.html" %}
+
+{% block result %}
+<h3>加班費計算</h3>
+<h4>工作時數</h4>
+<table width="300">
+  <tr>
+    <td>日期</td>
+    <td>當日時數</td>
+  </tr>
+  {% for entry in worktime %}
+  <tr>
+    <td>{{ entry.date }}</td>
+    <td>{{ entry.time_diff }}</td>
+  </tr>
+  {% endfor %}
+</table>
+<p>該月加班了{{ overtime }}小時</p>
+<p>應給予加班費{{ overtime_pay }}元</p>
+
+{% endblock %}
