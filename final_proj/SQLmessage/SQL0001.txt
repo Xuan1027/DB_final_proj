@@ -1,0 +1,33 @@
+--
+-- Create model Department
+--
+CREATE TABLE `HRmanage_department` (`id` bigint AUTO_INCREMENT NOT NULL PRIMARY KEY, `name` varchar(40) NOT NULL, `job` varchar(40) NOT NULL, `esti_num` integer NOT NULL);
+--
+-- Create model Employee
+--
+CREATE TABLE `HRmanage_employee` (`ID` varchar(10) NOT NULL PRIMARY KEY, `name` varchar(30) NOT NULL, `gender` varchar(1) NOT NULL, `hire_date` date NOT NULL, `address` varchar(100) NOT NULL, `phone_number` varchar(10) NOT NULL, `department_id` bigint NOT NULL, `job_id` bigint NOT NULL);
+--
+-- Create model File
+--
+CREATE TABLE `HRmanage_file` (`id` bigint AUTO_INCREMENT NOT NULL PRIMARY KEY, `upload_file` varchar(100) NOT NULL);
+--
+-- Create model Project
+--
+CREATE TABLE `HRmanage_project` (`name` varchar(20) NOT NULL PRIMARY KEY, `principal` varchar(10) NOT NULL, `deadline` date NOT NULL);
+--
+-- Create model Salary
+--
+CREATE TABLE `HRmanage_salary` (`id` bigint AUTO_INCREMENT NOT NULL PRIMARY KEY, `month` varchar(7) NOT NULL, `basic` integer NOT NULL, `overtime` integer NOT NULL, `miscellaneous` integer NOT NULL, `ID_id` varchar(10) NOT NULL);
+--
+-- Create model DayOff
+--
+CREATE TABLE `HRmanage_dayoff` (`id` bigint AUTO_INCREMENT NOT NULL PRIMARY KEY, `year` varchar(4) NOT NULL, `RestDay` integer NOT NULL, `ID_id` varchar(10) NOT NULL);
+--
+-- Create model CheckIn
+--
+CREATE TABLE `HRmanage_checkin` (`id` bigint AUTO_INCREMENT NOT NULL PRIMARY KEY, `date` date NOT NULL, `checkin` datetime(6) NOT NULL, `checkout` datetime(6) NOT NULL, `ID_id` varchar(10) NOT NULL);
+ALTER TABLE `HRmanage_employee` ADD CONSTRAINT `HRmanage_employee_department_id_13499b21_fk_HRmanage_` FOREIGN KEY (`department_id`) REFERENCES `HRmanage_department` (`id`);
+ALTER TABLE `HRmanage_employee` ADD CONSTRAINT `HRmanage_employee_job_id_021db51b_fk_HRmanage_department_id` FOREIGN KEY (`job_id`) REFERENCES `HRmanage_department` (`id`);
+ALTER TABLE `HRmanage_salary` ADD CONSTRAINT `HRmanage_salary_ID_id_1cd75742_fk_HRmanage_employee_ID` FOREIGN KEY (`ID_id`) REFERENCES `HRmanage_employee` (`ID`);
+ALTER TABLE `HRmanage_dayoff` ADD CONSTRAINT `HRmanage_dayoff_ID_id_456aeaf3_fk_HRmanage_employee_ID` FOREIGN KEY (`ID_id`) REFERENCES `HRmanage_employee` (`ID`);
+ALTER TABLE `HRmanage_checkin` ADD CONSTRAINT `HRmanage_checkin_ID_id_56725a19_fk_HRmanage_employee_ID` FOREIGN KEY (`ID_id`) REFERENCES `HRmanage_employee` (`ID`);

@@ -1,0 +1,4 @@
+--
+-- Alter field month on salary
+--
+ALTER TABLE `HRmanage_salary` MODIFY `month` date NOT NULL;

@@ -1,0 +1,4 @@
+--
+-- Delete model File
+--
+DROP TABLE `HRmanage_file` CASCADE;

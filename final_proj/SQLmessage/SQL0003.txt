@@ -1,0 +1,18 @@
+--
+-- Create model DayOffDep
+--
+CREATE TABLE `HRmanage_dayoffdep` (`year` integer NOT NULL PRIMARY KEY, `RestDay` integer NOT NULL);
+--
+-- Alter field checkin on checkin
+--
+ALTER TABLE `HRmanage_checkin` MODIFY `checkin` time(6) NOT NULL;
+--
+-- Alter field checkout on checkin
+--
+ALTER TABLE `HRmanage_checkin` MODIFY `checkout` time(6) NOT NULL;
+--
+-- Alter field principal on project
+--
+ALTER TABLE `HRmanage_project` RENAME COLUMN `principal` TO `principal_id`;
+CREATE INDEX `HRmanage_project_principal_id_f4e6d20f` ON `HRmanage_project` (`principal_id`);
+ALTER TABLE `HRmanage_project` ADD CONSTRAINT `HRmanage_project_principal_id_f4e6d20f_fk_HRmanage_employee_ID` FOREIGN KEY (`principal_id`) REFERENCES `HRmanage_employee` (`ID`);
