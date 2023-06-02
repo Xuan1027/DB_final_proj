@@ -1,0 +1,101 @@
+ID,name,department,job,gender,hire_date,address,phone
+1,Bedding,Support,Part-time Personnel,Male,2004/4/11,316 Ludington Drive,9488343309
+2,Barnett,Services,Public Relations Supervisor,Male,2008/4/2,024 Ohio Trail,3642443475
+3,Sandcroft,Sales,Sales Supervisor,Male,2020/12/12,1063 Johnson Trail,3834135004
+4,Pakeman,Accounting,Finance Analyst,Female,2001/2/14,28865 Lake View Alley,9485208398
+5,Pettisall,Accounting,Finance Analyst,Female,2020/3/4,13678 Thierer Hill,7215920139
+6,Jockle,Research and Development,Software Project Supervisor,Male,2015/11/29,2602 Forest Court,6951335637
+7,Jacquemot,Legal,Of Counsel,Male,2002/9/18,57 Express Terrace,5386929680
+8,Braywood,Human Resources,Human Resources Specialist,Female,2019/2/11,45 Delaware Place,4809081066
+9,Baford,Product Management,Production Manager,Female,2011/6/19,5801 Northview Place,2859482664
+10,Cranfield,Research and Development,System Analyst,Male,2003/9/2,07 Veith Park,6343052504
+11,Shingler,Legal,Legal Assistant,Female,2013/3/2,26265 Drewry Circle,1047348286
+12,Brimelow,Engineering,Electronics Engineer,Male,2021/11/5,78 Declaration Circle,9867923042
+13,Deason,Research and Development,Website Programmer,Male,2006/5/23,11700 Hermina Court,9065861983
+14,Leivers,Research and Development,Chief Technology Officer,Male,2015/7/4,57 Erie Center,1768126836
+15,Malcolmson,Sales,Sales Account Manager,Female,2014/8/9,2730 Arrowood Plaza,2615363357
+16,Kondratowicz,Services,Media Specialist,Male,2002/1/8,6 Express Parkway,6449343985
+17,Redbourn,Training,company lecturer,Male,2012/6/11,8697 Loeprich Circle,2154814041
+18,Jumeau,Research and Development,Software Program Designer,Male,2018/9/18,866 Stephen Court,8384718583
+19,Bortolini,Research and Development,IT Specialist,Female,2020/2/1,16697 Garrison Road,5442063583
+20,de Aguirre,Research and Development,System Engineer,Female,2020/3/25,5 Heath Drive,4167647548
+21,Vivians,Legal,Of Counsel,Female,2012/8/17,4 Division Center,7174860333
+22,Stapele,Accounting,Cost Accounting Manager,Female,2001/2/4,98 Lighthouse Bay Hill,7026659851
+23,Rowell,Support,Office,Male,2002/1/1,50200 Carberry Junction,9451539168
+24,Ende,Support,Secretary,Male,2001/1/11,45414 New Castle Junction,5105822981
+25,Malham,Human Resources,Human Resources Supervisor,Male,2003/9/19,8714 Dottie Street,8679034050
+26,Cahillane,Engineering,IC Process Engineer,Female,2015/4/8,02599 Del Mar Plaza,7926345328
+27,Lymer,Marketing,Logistics Manager,Male,2002/8/25,52 Paget Pass,9336082159
+28,Mardlin,Human Resources,Human Resources Supervisor,Male,2016/11/17,08695 La Follette Trail,2343933383
+29,Sarton,Product Management,Operations Manager,Male,2001/8/1,57830 Ridgeway Place,3855973698
+30,Meddows,Human Resources,Human Resources Specialist,Male,2004/6/27,8 Elgar Place,5704942773
+31,Coker,Human Resources,Human Resources Manager,Male,2021/9/28,08361 Fisk Lane,2116049226
+32,Mundell,Research and Development,Senior Hardware Engineer,Male,2007/3/20,65046 Hoffman Road,4224014805
+33,Shere,Product Management,Quality Assurance Engineer,Male,2013/4/8,6422 Chive Park,6467922393
+34,Van der Daal,Engineering,Optoeletronics Engineer,Female,2000/6/22,1 Grayhawk Circle,5993270962
+35,Wedon,Product Management,Operations Supervisor,Female,2004/1/11,1497 Nelson Place,5173649283
+36,Forshaw,Accounting,Finance Manager,Male,2007/8/25,46 Ridgeway Trail,3097204106
+37,McGrudder,Legal,Legal Assistant,Male,2008/7/6,54967 Graedel Junction,1981253743
+38,Macauley,Legal,Legal Specialist,Male,2001/8/9,08273 Clarendon Circle,8916636801
+39,Sherringham,Engineering,IC Design Engineer,Male,2021/6/4,37 Summit Crossing,6264023985
+40,Spittle,Engineering,Electronics Engineer,Female,2004/7/23,33 North Lane,3623688598
+41,Haldane,Engineering,Computer Hardware Engineering,Male,2020/5/22,308 Delladonna Pass,2301597843
+42,Farra,Human Resources,Human Resources Specialist,Male,2017/8/21,66097 Walton Lane,9244906248
+43,Geggie,Human Resources,Human Resources Specialist,Male,2013/6/9,2108 Schmedeman Junction,5837383185
+44,Wellman,Legal,Of Counsel,Male,2004/11/27,2312 Onsgard Place,4468394166
+45,Toulmin,Research and Development,Senior Software Engineer,Female,2022/4/10,60 Fordem Place,6653451986
+46,Yurenev,Services,Public Relations Manager,Male,2013/12/7,6114 Ridge Oak Avenue,3576897089
+47,Utteridge,Sales,Sales Director,Female,2008/10/4,4 Darwin Avenue,2071988688
+48,MacKimmie,Services,Media Manager,Male,2010/6/7,3760 Hansons Avenue,4538185369
+49,Eunson,Engineering,Design Engineer,Male,2004/7/30,63710 Brentwood Plaza,4926862122
+50,Collocott,Research and Development,Test Engineer,Male,2001/9/27,8109 Larry Junction,6993063622
+51,Paprotny,Research and Development,Information Security Engineer,Male,2012/3/28,914 Springview Street,6483560719
+52,Peeke-Vout,Sales,Sales Assistant,Male,2021/10/17,1 Utah Point,5359833902
+53,Farley,Accounting,Finance Assistant,Male,2022/2/13,38520 Stephen Place,6598257286
+54,Greed,Marketing,Marketing,Male,2015/7/13,73 Arizona Avenue,5473631300
+55,Van Oord,Sales,Sales Manager,Male,2017/10/30,08239 School Road,2515415454
+56,Tilbrook,Research and Development,Technical Director,Male,2016/9/3,52180 Debs Circle,2959527241
+57,MacCurley,Research and Development,Database Engineer,Female,2021/4/26,62865 Macpherson Hill,5845081862
+58,Stollenbecker,Accounting,Accountant,Male,2009/8/9,81914 Mifflin Pass,5232042137
+59,Le Count,Support,Sales Admin. Supervisor,Female,2021/11/5,9513 East Way,3201976646
+60,Aiskrigg,Human Resources,Human Resources Supervisor,Female,2013/6/24,36 Maple Wood Court,8922250101
+61,Bliss,Business Development,Vice President,Male,2009/9/12,37106 Sachtjen Center,6012066918
+62,Hutable,Business Development,Executive Director,Female,2001/3/23,88 Packers Street,9296628520
+63,Kellet,Engineering,Hardware Engineering R&D Supervisor,Male,2013/12/21,246 Algoma Trail,2281130221
+64,Gayter,Business Development,Chairman,Male,2002/8/24,32 Hermina Terrace,4457350485
+65,Gayter,Product Management,Production Supervisor,Male,2013/11/3,6 Westend Crossing,3435937292
+66,Duchant,Support,Sales Admin. Manager,Female,2005/9/8,46914 Ridgeview Point,3174129626
+67,Sexti,Marketing,Marketing Assistant,Female,2013/5/28,4 Express Alley,6671980548
+68,McCard,Human Resources,Human Resources Specialist,Male,2014/10/7,41436 Forster Road,9797022684
+69,Ackerman,Human Resources,Human Resources Specialist,Male,2016/12/12,151 Schmedeman Park,9245585066
+70,Rhucroft,Research and Development,IT Supervisor,Female,2001/4/16,08706 Dayton Lane,4426465934
+71,Fraczkiewicz,Product Management,Quality Assurance Manager,Female,2004/8/9,62 Acker Place,5331286992
+72,Jesteco,Training,company lecturer,Female,2022/1/2,823 Messerschmidt Circle,1854987780
+73,Purveys,Business Development,President,Male,2019/6/18,931 Corry Park,3831800968
+74,Adao,Product Management,Quality Assurance Inspector,Female,2002/7/9,4370 Anniversary Parkway,7962118564
+75,Acey,Marketing,Market Analyst,Female,2002/1/3,3 Muir Avenue,5272707098
+76,Starzaker,Training,company lecturer,Female,2003/9/29,67596 Schlimgen Plaza,2125978210
+77,Allatt,Support,Administration Supervisor,Male,2003/3/26,2750 Derek Pass,1636113893
+78,Lygo,Human Resources,Human Resources Director,Male,2021/7/22,4918 Myrtle Circle,1038166066
+79,Pauley,Sales,Sales Assistant,Male,2004/1/29,2 Annamark Circle,3954587438
+80,Gerlts,Accounting,Finance Analysis Manager,Female,2013/9/28,72004 Oneill Parkway,7418320020
+81,Insull,Human Resources,Human Resources Manager,Male,2007/12/25,96 Grover Park,7325436044
+82,Langsdon,Engineering,R&D Supervisor,Male,2006/12/22,07145 Packers Pass,8883481221
+83,Barette,Accounting,Tax Executive,Male,2022/7/12,43 Miller Way,7112318641
+84,Meffan,Engineering,Computer Maintenance Engineer,Male,2016/2/22,31 Old Gate Trail,2572841010
+85,Woolmer,Product Management,Quality Control,Male,2006/5/2,9245 Main Park,9531137844
+86,Axston,Services,Media Purchasing Personnel,Male,2020/7/30,26 Alpine Alley,7706075411
+87,Ensor,Research and Development,Hardware Engineer,Male,2008/4/10,35 Oneill Court,5277720545
+88,Ghilardini,Product Management,Quality System Engineer,Female,2019/2/11,44 Monterey Pass,9907607066
+89,Shillito,Research and Development,IT Manager,Female,2005/9/18,010 Susan Crossing,3657406119
+90,Vigrass,Legal,Of Counsel,Male,2012/5/2,45 Old Shore Alley,5344999277
+91,Elnough,Accounting,Finance Supervisor,Female,2007/9/26,95146 Gina Way,4075775641
+92,Cowton,Human Resources,Human Resources Specialist,Female,2012/3/18,71 Nevada Avenue,2633780418
+93,Parkyn,Engineering,IC Layout Engineer,Female,2012/12/12,493 Carberry Street,7183688493
+94,Lansdowne,Research and Development,Software Engineer,Female,2006/6/4,611 Mandrake Avenue,6693093164
+95,Whife,Support,Purchase,Female,2017/10/23,01 Westerfield Drive,9353880442
+96,Lode,Business Development,Chief Executive Officer,Male,2022/11/13,4760 Hooker Crossing,9513220344
+97,Ganders,Support,Sales Admin. Supervisor,Male,2006/8/14,2 Northfield Street,4613115098
+98,Jewess,Services,Media PR Promotion,Male,2005/7/20,16037 Stone Corner Court,6946180879
+99,Lomen,Research and Development,Network Engineer,Male,2019/1/8,129 Truax Circle,7832136383
+100,Bartell,Services,Public Relations Executive,Female,2005/1/16,94 Everett Place,4462621677

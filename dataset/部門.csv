@@ -1,0 +1,103 @@
+department,job,men_predict
+Accounting,Finance Manager,1
+Accounting,Finance Supervisor,3
+Accounting,Accountant,6
+Accounting,Finance Assistant,2
+Accounting,Cost Accounting Manager,8
+Accounting,Tax Executive,3
+Accounting,Finance Analyst,9
+Accounting,Finance Analysis Manager,6
+Business Development,President,1
+Business Development,Chairman,1
+Business Development,Vice President,1
+Business Development,Executive Director,1
+Business Development,Chief Executive Officer,1
+Business Development,Chief Operating Officer,1
+Business Development,General Manager,6
+Business Development,Special Assistant,4
+Business Development,Account Manager,4
+Business Development,Supervisor,4
+Business Development,Section  Manager,4
+Engineering,Hardware Engineering R&D Supervisor,1
+Engineering,Computer Hardware Engineering,7
+Engineering,Computer Maintenance Engineer,9
+Engineering,Electronics Engineer,10
+Engineering,Design Engineer,6
+Engineering,Optoeletronics Engineer,1
+Engineering,IC Design Engineer,3
+Engineering,IC Layout Engineer,4
+Engineering,IC Process Engineer,10
+Engineering,R&D Supervisor,4
+Human Resources,Human Resources Director,1
+Human Resources,Human Resources Manager,3
+Human Resources,Human Resources Supervisor,5
+Human Resources,Human Resources Specialist,10
+Legal,Legal Specialist,1
+Legal,Legal Assistant,3
+Legal,Of Counsel,4
+Marketing,Market Analyst,9
+Marketing,Marketing,4
+Marketing,Marketing Assistant,8
+Marketing,Logistics Manager,7
+Marketing,Logistics Supervisor,5
+Marketing,Logistics Specialist,8
+Marketing,Certified Professional Logistician,2
+Marketing,Trade Marketing Manager,6
+Marketing,Trade Marketing Supervisor,5
+Product Management,Production Manager,5
+Product Management,Production Supervisor,3
+Product Management,Operations Manager,7
+Product Management,Operations Supervisor,7
+Product Management,Quality Assurance Manager,3
+Product Management,Quality Assurance Engineer,10
+Product Management,Quality Assurance Inspector,7
+Product Management,Quality Control,10
+Product Management,Quality System Engineer,5
+Product Management,Quality Assurance Engineer,5
+Product Management,Quality Control Personnel,3
+Product Management,Electrical Safety Engineer,8
+Product Management,Testing Personnel,7
+Product Management,Failure Analysis Engineer,10
+Research and Development,Chief Technology Officer,1
+Research and Development,Technical Director,1
+Research and Development,IT Manager,2
+Research and Development,IT Supervisor,8
+Research and Development,IT Specialist,10
+Research and Development,System Analyst,5
+Research and Development,Senior Software Engineer,7
+Research and Development,Software Engineer,9
+Research and Development,Software Project Supervisor,10
+Research and Development,Software Program Designer,6
+Research and Development,System Engineer,1
+Research and Development,Senior Hardware Engineer,10
+Research and Development,Hardware Engineer,5
+Research and Development,Database Engineer,7
+Research and Development,Information Security Engineer,9
+Research and Development,Test Engineer,10
+Research and Development,Network Engineer,6
+Research and Development,Website Programmer,5
+Sales,Sales Director,1
+Sales,Sales Manager,2
+Sales,Sales Account Manager,2
+Sales,Sales Supervisor,4
+Sales,Sales Assistant,6
+Services,Public Relations Manager,1
+Services,Public Relations Supervisor,3
+Services,Public Relations Executive,2
+Services,Media Manager,1
+Services,Media Specialist,8
+Services,Media PR Promotion,3
+Services,Media Purchasing Personnel,2
+Services,Public Relations PR Personnel,1
+Services,Activities PR Personnel,8
+Services,Promotion PR Personnel,5
+Services,Gaming PR Personnel,6
+Support,Administration Supervisor,1
+Support,Sales Admin. Manager,4
+Support,Sales Admin. Supervisor,5
+Support,Sales Admin. Supervisor,4
+Support,Secretary,7
+Support,Purchase,10
+Support,Office,5
+Support,Part-time Personnel,5
+Training,company lecturer,3
