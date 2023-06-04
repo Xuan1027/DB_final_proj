@@ -1,4 +1,4 @@
-department,job,men_predict
+DEPARTMENT,JOB,MEN_PREDICT
 Accounting,Finance Manager,1
 Accounting,Finance Supervisor,3
 Accounting,Accountant,6
@@ -53,7 +53,6 @@ Product Management,Quality Assurance Engineer,10
 Product Management,Quality Assurance Inspector,7
 Product Management,Quality Control,10
 Product Management,Quality System Engineer,5
-Product Management,Quality Assurance Engineer,5
 Product Management,Quality Control Personnel,3
 Product Management,Electrical Safety Engineer,8
 Product Management,Testing Personnel,7
@@ -95,7 +94,6 @@ Services,Gaming PR Personnel,6
 Support,Administration Supervisor,1
 Support,Sales Admin. Manager,4
 Support,Sales Admin. Supervisor,5
-Support,Sales Admin. Supervisor,4
 Support,Secretary,7
 Support,Purchase,10
 Support,Office,5

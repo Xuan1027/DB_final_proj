@@ -1,34 +1,69 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html>
+  <style>
+      th, td{
+          border: 1px solid black;
+          border-collapse: collapse;
+          padding: 20px;
+          text-align: center;
+          }
+
+      table{
+          border: 1px solid black;
+          border-collapse: collapse;
+          padding: 20px;
+          text-align: center;
+          margin-left: 20%;
+          }
+
+      h3 {
+          color: #000000;
+          font-family: "微軟正黑體";
+          font-size: 20px;
+          font-weight: bold;
+          text-align: left;
+          padding-top: 5%;
+          margin-left: 15%;
+        }
+
+      .table-container {
+          display: inline-block;
+          margin-left: 20%;
+          width: 800px; /* Adjust the width as needed */
+          height: 650px; /* Adjust the height as needed */
+          /* background-color: lightgray; */
+          overflow-y: scroll;
+        }
+
+  </style>
   <head>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{% block title %} {% endblock %}</title>
   </head>
   <body>
-    <table width="800">
-      <tr>
-        <td>
+    <div class="topnav">
           <a href="{% url 'upload_page' %}"> 上傳檔案 </a>
-        </td>
-        <td>
           <a href="{% url 'employee_evaluation' %}">員工績效評級</a>
-        </td>
-        <td>
           <a href="{% url 'overtime_pay' %}">加班費計算</a>
-        </td>
-        <td>
           <a href="{% url 'vacancies' %}">職缺查詢</a>
-        </td>
-        <td>
           <a href="{% url 'spacial_holiday' %}">特休天數查詢</a>
-        </td>
-        <td>
           <a href="{% url 'participation' %}">部門參與計畫查詢</a>
-        </td>
-      </tr>
-    </table>
-    {% block content %}
-    {% endblock %}
+
+          {% if user.is_authenticated %}
+            <a style="float: right;text-align: right;" href="{% url 'admin:logout' %}">登出</a>
+          {% endif %}
+          <a style="float: right;text-align: right;" href="/admin">管理員後台</a>
+    </div>
+
+    <div class="container">
+      {% block content %}
+      {% endblock %}
+    </div>
+    
   </body>
 </html>

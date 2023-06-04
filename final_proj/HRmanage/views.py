@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .handle import *
-
+from .forms import *
 
 # Create your views here.
 def index(request):
@@ -19,26 +19,37 @@ def index(request):
     Salary = Upload_Salary(request.POST, request.FILES)
 
     if DayOffDep.is_valid():
+        print("DayOffDep is valid")
         handle_DayOffDep(request.FILES["DayOffDep"])
 
     if Department.is_valid():
+        print("Department is valid")
         handle_Department(request.FILES["Department"])
 
     if Employee.is_valid():
+        print("Employee is valid")
         handle_Employee(request.FILES["Employee"])
 
     if DayOff.is_valid():
+        print("DayOff is valid")
         handle_DayOff(request.FILES["DayOff"])
 
     if CheckIn.is_valid():
+        print("CheckIn is valid")
         handle_CheckIn(request.FILES["CheckIn"])
 
     if Project.is_valid():
+        print("Project is valid")
         handle_Project(request.FILES["Project"])
 
     if Salary.is_valid():
+        print("Salary is valid")
         handle_Salary(request.FILES["Salary"])
 
+    return render(
+            request,
+            "HRmanage/upload_page/index.html",
+        )
 
 def employee_evaluation(request):
     if request.method != "POST":

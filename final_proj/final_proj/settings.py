@@ -86,7 +86,7 @@ WSGI_APPLICATION = 'final_proj.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.getenv('DBNAME'),
+        'NAME': "proj", #os.getenv('DBNAME'),
         'USER': os.getenv('MYSQLUSER'),
         'PASSWORD': os.getenv('MYSQLPASSWD'),
         'HOST': '',
@@ -94,6 +94,7 @@ DATABASES = {
     }
 }
 
+LOGOUT_REDIRECT_URL = '/'
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -131,7 +132,13 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 # MEDIA_URL = '/media/'
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# MEDIA_ROOT = os.path.join(BASE_DIR)
+STATIC_ROOT = os.path.join(BASE_DIR, 'HRmanage', 'static')
+# STATICFILES_DIRS = [
+#     # STATIC_ROOT
+#     # os.path.join(BASE_DIR, 'static'),
+#     os.path.join(BASE_DIR, 'HRmanage/static')
+# ]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
