@@ -12,7 +12,7 @@ class EmployeeAdmin(admin.ModelAdmin):
     search_fields = ('name',)
     # print(list_display, type(list_display))
 
-# @admin.register(Employee)
+
 class DayOffAdmin(admin.ModelAdmin):
     Legal_fields = ('id', 'year', 'RestDay')
     Legal_fields = [name.lower() for name in Legal_fields]

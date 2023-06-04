@@ -79,13 +79,19 @@ def overtime_pay(request):
     if not query_month_valid(request.POST["query_month"]):
         return render(request, "HRmanage/overtime_pay/index.html")
 
-    if not query_pay_ratio_valid(request.POST["pay_ratio"]):
-        return render(request, "HRmanage/overtime_pay/index.html")
+    # if not query_pay_ratio_valid(request.POST["pay_ratio"]):
+    #     return render(request, "HRmanage/overtime_pay/index.html")
 
+    basic_salary = handle_overtime_pay_basic_salary(request.POST)
     result = handle_overtime_pay_query(request.POST)
-    result["overtime_pay"] = int(result.get("overtime")) * int(
-        request.POST["pay_ratio"]
-    )
+
+    print("basic_salary", basic_salary)
+    result["overtime_pay"] = int(result.get("overtime")) * int(basic_salary/960*3)
+
+    # result["overtime_pay"] = int(result.get("overtime")) * int(
+    #     request.POST["pay_ratio"]
+    # )
+    
     return render(request, "HRmanage/overtime_pay/result.html", context=result)
 
 
@@ -94,6 +100,7 @@ def vacancies(request):
         return render(request, "HRmanage/vacancies/index.html")
 
     result = handle_vacancies()
+    result = handle_basic_salary_range(result)
     context = {"department": result}
     return render(request, "HRmanage/vacancies/result.html", context)
 
