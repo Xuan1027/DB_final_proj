@@ -45,7 +45,7 @@ def employee_evaluation(request):
         return render(request, "HRmanage/employee_evaluation/index.html")
 
     if not query_id_valid(request.POST["query_id"]):
-        return render(request, "HRmanage/employee_evaluation.html")
+        return render(request, "HRmanage/employee_evaluation/index.html")
     worktime = handle_employee_evaluation_worktime(request.POST["query_id"])
     projects = handle_employee_evaluation_project(request.POST["query_id"])
     context = {
@@ -68,12 +68,12 @@ def overtime_pay(request):
     if not query_month_valid(request.POST["query_month"]):
         return render(request, "HRmanage/overtime_pay/index.html")
 
-    if not query_pay_ratio_valid(request.POST["pay_ratio"]):
-        return render(request, "HRmanage/overtime_pay/index.html")
+    # if not query_pay_ratio_valid(request.POST["pay_ratio"]):
+    #     return render(request, "HRmanage/overtime_pay/index.html")
 
     result = handle_overtime_pay_query(request.POST)
-    result["overtime_pay"] = int(result.get("overtime")) * int(
-        request.POST["pay_ratio"]
+    result["overtime_pay"] = int(
+        int(result.get("overtime")) * int(result.get("salary").basic) / 240 * 4 / 3
     )
     return render(request, "HRmanage/overtime_pay/result.html", context=result)
 

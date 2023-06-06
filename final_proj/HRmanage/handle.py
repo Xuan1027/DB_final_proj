@@ -154,7 +154,7 @@ def handle_Salary(f):
         return
     for row in reader:
         ID = Employee.objects.get(ID=row["ID"])
-        MONTH = "2023/" + row["MONTH"]
+        MONTH = "2022/" + row["MONTH"]
         MONTH = datetime.strptime(MONTH, "%Y/%m").replace(day=1).date()
         SALARY = int(row["SALARY"])
         OVERTIME_PAY = int(row["OVERTIME_PAY"])
@@ -226,6 +226,9 @@ def handle_employee_evaluation_project(q):
 def handle_overtime_pay_query(q):
     queryset = handle_employee_evaluation_worktime(q["query_id"])
     queryset = queryset.filter(date__year=q["query_year"], date__month=q["query_month"])
+    salary = Salary.objects.get(
+        ID__ID=q["query_id"], month__year=q["query_year"], month__month=q["query_month"]
+    )
     total_overtime = 0
     for entry in queryset:
         hour = int(entry["time_delta"].total_seconds() / 3600)
@@ -233,7 +236,7 @@ def handle_overtime_pay_query(q):
         if hour > 8:
             total_overtime += hour - 8
 
-    return {"worktime": queryset, "overtime": total_overtime}
+    return {"worktime": queryset, "overtime": total_overtime, "salary": salary}
 
 
 def handle_vacancies():
