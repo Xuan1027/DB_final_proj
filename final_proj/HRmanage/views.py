@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .handle import *
 from .forms import *
 
+
 # Create your views here.
 def index(request):
     if request.method != "POST":
@@ -47,16 +48,17 @@ def index(request):
         handle_Salary(request.FILES["Salary"])
 
     return render(
-            request,
-            "HRmanage/upload_page/index.html",
-        )
+        request,
+        "HRmanage/upload_page/index.html",
+    )
+
 
 def employee_evaluation(request):
     if request.method != "POST":
         return render(request, "HRmanage/employee_evaluation/index.html")
 
     if not query_id_valid(request.POST["query_id"]):
-        return render(request, "HRmanage/employee_evaluation.html")
+        return render(request, "HRmanage/employee_evaluation/index.html")
     worktime = handle_employee_evaluation_worktime(request.POST["query_id"])
     projects = handle_employee_evaluation_project(request.POST["query_id"])
     context = {
@@ -86,12 +88,12 @@ def overtime_pay(request):
     result = handle_overtime_pay_query(request.POST)
 
     print("basic_salary", basic_salary)
-    result["overtime_pay"] = int(result.get("overtime")) * int(basic_salary/960*3)
+    result["overtime_pay"] = int(result.get("overtime")) * int(basic_salary / 180)
 
     # result["overtime_pay"] = int(result.get("overtime")) * int(
     #     request.POST["pay_ratio"]
     # )
-    
+
     return render(request, "HRmanage/overtime_pay/result.html", context=result)
 
 
