@@ -2,25 +2,29 @@
 
 {% block result %}
 <h3>查詢結果</h3>
-<table width="700">
-  <tr>
-    <td>年度</td>
-    <td>員工ID</td>
-    <td>員工姓名</td>
-    <td>年資</td>
-    <td>可請假天數</td>
-    <td>已經請假天數</td>
-    <td>特休剩餘天數</td>
-  </tr>
-  <tr>
-    <td>{{ year }}</td>
-    <td>{{ employee.ID }}</td>
-    <td>{{ employee.name }}</td>
-    <td>{{ job_tenure }}</td>
-    <td>{{ dayoff_total }}</td>
-    <td>{{ dayoff_take }}</td>
-    <td>{{ dayoff_left }}</td>
-  </tr>
-</table>
+  {% if hired == True%}
+    <table width="700">
+      <tr>
+        <td>年度</td>
+        <td>員工ID</td>
+        <td>員工姓名</td>
+        <td>年資</td>
+        <td>可請假天數</td>
+        <td>已經請假天數</td>
+        <td>特休剩餘天數</td>
+      </tr>
+      <tr>
+        <td>{{ year }}</td>
+        <td>{{ employee.ID }}</td>
+        <td>{{ employee.name }}</td>
+        <td>{{ job_tenure }}</td>
+        <td>{{ dayoff_total }}</td>
+        <td>{{ dayoff_take }}</td>
+        <td>{{ dayoff_left }}</td>
+      </tr>
+    </table>
+  {% else %}
+    <p>{{ year }}年 員工尚未入職</p>
+  {% endif %}
 
 {% endblock %}

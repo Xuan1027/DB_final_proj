@@ -2,19 +2,22 @@
 
 {% block result %}
 <h3>職缺結果</h3>
-<table width="500">
-  <tr>
-    <td>部門</td>
-    <td>職缺名稱</td>
-    <td>職缺數</td>
-  </tr>
-  {% for entry in department %}
-  <tr>
-    <td>{{ entry.name }}</td>
-    <td>{{ entry.job }}</td>
-    <td>{{ entry.job_left }}</td>
-  </tr>
-  {% endfor %}
-</table>
-
+<div class="table-container">
+  <table width="700">
+    <tr>
+      <td>部門</td>
+      <td>職缺名稱</td>
+      <td>職缺數</td>
+      <td>月薪</td>
+    </tr>
+    {% for entry in department %}
+    <tr>
+      <td>{{ entry.name }}</td>
+      <td width="200">{{ entry.job }}</td>
+      <td width="100">{{ entry.job_left }}</td>
+      <td width="100">{{ entry.salary }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>
 {% endblock %}
