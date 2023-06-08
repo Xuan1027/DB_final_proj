@@ -61,9 +61,14 @@ def employee_evaluation(request):
         return render(request, "HRmanage/employee_evaluation/index.html")
     worktime = handle_employee_evaluation_worktime(request.POST["query_id"])
     projects = handle_employee_evaluation_project(request.POST["query_id"])
+    try:
+        info = Employee.objects.get(ID=request.POST["query_id"])
+    except Employee.DoesNotExist:
+        pass
     context = {
         "worktime": worktime,
         "projects": projects,
+        "person": info,
     }
     return render(request, "HRmanage/employee_evaluation/result.html", context)
 
@@ -84,11 +89,16 @@ def overtime_pay(request):
     # if not query_pay_ratio_valid(request.POST["pay_ratio"]):
     #     return render(request, "HRmanage/overtime_pay/index.html")
 
+    try:
+        info = Employee.objects.get(ID=request.POST["query_id"])
+    except Employee.DoesNotExist:
+        pass
+
     basic_salary = handle_overtime_pay_basic_salary(request.POST)
     result = handle_overtime_pay_query(request.POST)
 
-    print("basic_salary", basic_salary)
     result["overtime_pay"] = int(result.get("overtime")) * int(basic_salary / 180)
+    result["person"] = info
 
     # result["overtime_pay"] = int(result.get("overtime")) * int(
     #     request.POST["pay_ratio"]
@@ -98,12 +108,15 @@ def overtime_pay(request):
 
 
 def vacancies(request):
+    queryset = Department.objects.values("name").distinct()
+    context = {"departments": queryset}
     if request.method != "POST":
-        return render(request, "HRmanage/vacancies/index.html")
+        return render(request, "HRmanage/vacancies/index.html", context)
 
-    result = handle_vacancies()
+    result = handle_vacancies(request.POST)
     result = handle_basic_salary_range(result)
-    context = {"department": result}
+    context["department"] = result
+    context["query_dep"] = request.POST["query_dep"]
     return render(request, "HRmanage/vacancies/result.html", context)
 
 

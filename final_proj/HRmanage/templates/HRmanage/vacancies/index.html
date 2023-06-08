@@ -12,6 +12,12 @@
 <form action="{% url 'vacancies' %}" method="POST">
   {% csrf_token %}
   <h2>職缺查詢</h2>
+  <select name="query_dep">
+    <option value="all" >All</option>
+    {% for department in departments %}
+    <option value="{{ department.name }}" >{{ department.name }}</option>
+    {% endfor %}
+  </select>
   <input type=submit value="查詢">
 </form>
 

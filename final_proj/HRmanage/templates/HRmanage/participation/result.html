@@ -3,14 +3,18 @@
 {% block result %}
 <h3>部門：{{dep_choice}}</h3>
 <h3>參與計畫</h3>
-<table width="300">
+<table width="600">
   <tr>
     <td>計畫名稱</td>
+    <td>負責人ID</td>
+    <td>負責人姓名</td>
     <td>結案日期</td>
   </tr>
   {% for entry in result %}
   <tr>
     <td>{{ entry.name }}</td>
+    <td>{{ entry.principal.ID }}</td>
+    <td>{{ entry.principal.name }}</td>
     <td>{{ entry.deadline }}</td>
   </tr>
   {% endfor %}

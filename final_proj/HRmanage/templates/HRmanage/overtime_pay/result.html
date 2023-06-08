@@ -1,6 +1,8 @@
 {% extends "HRmanage/overtime_pay/index.html" %}
 
 {% block result %}
+<h3>員工ID:{{ person.ID }}&nbsp;&nbsp;&nbsp;&nbsp;員工姓名:{{ person.name }}</h3>
+
 <h3 class=result_context>工作時數</h3>
 <table width="300">
   <tr>
@@ -15,7 +17,8 @@
   {% endfor %}
 </table>
 <p>該月加班了{{ overtime }}小時</p>
-<p>該名員工當月薪水為{{ salary.basic }}元</p>
+<p>該名員工當月薪水為{{ salary }}元</p>
+<p>加班費計算{{ salary }}(月薪)/240(小時/月)*{{ overtime }}(加班時數)*4/3={{ overtime_pay }}</p>
 <p>應給予加班費{{ overtime_pay }}元</p>
 
 {% endblock %}

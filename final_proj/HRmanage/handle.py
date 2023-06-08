@@ -9,6 +9,7 @@ from io import TextIOWrapper
 import csv
 import random
 
+
 def handle_csv(r):
     csv_file = TextIOWrapper(r, encoding="utf-8-sig")
     reader = csv.DictReader(csv_file)
@@ -208,12 +209,7 @@ def handle_employee_evaluation_worktime(q):
         .annotate(time_delta=F("checkout") - F("checkin"))
         .values("date", "time_delta")
     )
-    # queryset = queryset.annotate(
-    #     month=TruncMonth("date"), time_diff=Sum("time_delta")
-    # ).values("month", "time_diff")
-
-    # for entry in queryset:
-    #     print(entry["date"], entry["time_delta"])
+    queryset = queryset.order_by("-date")
 
     return queryset
 
@@ -226,10 +222,9 @@ def handle_employee_evaluation_project(q):
 def handle_overtime_pay_query(q):
     queryset = handle_employee_evaluation_worktime(q["query_id"])
     queryset = queryset.filter(date__year=q["query_year"], date__month=q["query_month"])
-    salary = Salary.objects.get(
-        ID__ID=q["query_id"], month__year=q["query_year"], month__month=q["query_month"]
-    )
+    salary = handle_overtime_pay_basic_salary(q)
     total_overtime = 0
+    queryset = queryset.order_by("-date")
     for entry in queryset:
         hour = int(entry["time_delta"].total_seconds() / 3600)
         entry["time_diff"] = hour
@@ -238,23 +233,32 @@ def handle_overtime_pay_query(q):
 
     return {"worktime": queryset, "overtime": total_overtime, "salary": salary}
 
-def handle_overtime_pay_basic_salary(q):
-    queryset = Salary.objects.filter(ID=q["query_id"]).filter(month__month=q["query_month"])
-    return queryset[0].basic
 
-def handle_vacancies():
-    queryset = (
-        Department.objects.all()
-        .annotate(
-            job_count=Count("job_title"),
-            job_left=ExpressionWrapper(
-                F("esti_num") - Count("job_title"), output_field=models.IntegerField()
-            ),
+def handle_overtime_pay_basic_salary(q):
+    try:
+        queryset = Salary.objects.filter(ID=q["query_id"]).filter(
+            month__month=q["query_month"]
         )
-        .filter(job_left__gt=0)
-    )
-    
+        return queryset[0].basic
+    except Salary.DoesNotExist:
+        return 0
+
+
+def handle_vacancies(q):
+    if q["query_dep"] != "all":
+        queryset = Department.objects.filter(name=q["query_dep"])
+    else:
+        queryset = Department.objects.all()
+
+    queryset = queryset.annotate(
+        job_count=Count("job_title"),
+        job_left=ExpressionWrapper(
+            F("esti_num") - Count("job_title"), output_field=models.IntegerField()
+        ),
+    ).filter(job_left__gt=0)
+
     return queryset
+
 
 def handle_basic_salary_range(queryset):
     result = []
@@ -272,19 +276,32 @@ def handle_basic_salary_range(queryset):
             )["min_basic_salary"]
         else:
             # generate random basic salary
-            basic_salary = (random.randint(300, 800)*100, random.randint(300, 800)*100)
+            basic_salary = (
+                random.randint(300, 800) * 100,
+                random.randint(300, 800) * 100,
+            )
             max_basic_salary = max(basic_salary)
             min_basic_salary = min(basic_salary)
 
-        result.append({'name':entry.name, 'job':entry.job, 'job_left':entry.job_left , 'salary':f"{min_basic_salary}~{max_basic_salary}"})
+        result.append(
+            {
+                "name": entry.name,
+                "job": entry.job,
+                "job_left": entry.job_left,
+                "salary": f"{min_basic_salary}~{max_basic_salary}",
+            }
+        )
     # print(job_salary_range, len(job_salary_range), len(queryset))
     return result
-   
 
 
 def handle_spacial_holiday(q):
-    emp = Employee.objects.get(ID=q["query_id"])
-    job_tenure = datetime.today().date().year - emp.hire_date.year
+    try:
+        emp = Employee.objects.get(ID=q["query_id"])
+        job_tenure = datetime.today().date().year - emp.hire_date.year
+    except Employee.DoesNotExist:
+        job_tenure = -1
+        emp = None
     # 員工尚未入職
     if job_tenure < 0:
         return {
@@ -296,12 +313,11 @@ def handle_spacial_holiday(q):
             "dayoff_take": 0,
             "dayoff_left": 0,
         }
-    
 
     max_value = DayOffDep.objects.filter(year__lte=job_tenure).aggregate(
         max_value=Max("RestDay")
     )["max_value"]
-    
+
     # 查詢已請假天數
     try:
         restday = DayOff.objects.get(ID=q["query_id"], year=q["query_year"])
@@ -309,7 +325,6 @@ def handle_spacial_holiday(q):
     except DayOff.DoesNotExist:
         # 該年未請假
         dayoff_take = 0
-        
 
     return {
         "hired": True,
@@ -321,48 +336,18 @@ def handle_spacial_holiday(q):
         "dayoff_left": max(max_value - dayoff_take, 0),
     }
 
-    ### original
-    # try:
-    #     restday = DayOff.objects.get(ID=q["query_id"], year=q["query_year"])
-    # except DayOff.DoesNotExist:
-    #     emp = Employee.objects.get(ID=q["query_id"])
-    #     job_tenure = datetime.today().date().year - emp.hire_date.year
-    #     max_value = DayOffDep.objects.filter(year__lte=job_tenure).aggregate(
-    #         max_value=Max("RestDay")
-    #     )["max_value"]
-
-    #     return {
-    #         "employee": emp,
-    #         "job_tenure": job_tenure,
-    #         "year": q["query_year"],
-    #         "dayoff_total": max_value,
-    #         "dayoff_take": 0,
-    #         "dayoff_left": max_value,
-    #     }
-
-    # emp = restday.ID
-    # job_tenure = datetime.today().date().year - emp.hire_date.year
-    # max_value = DayOffDep.objects.filter(year__lte=job_tenure).aggregate(
-    #     max_value=Max("RestDay")
-    # )["max_value"]
-
-    # return {
-    #     "employee": emp,
-    #     "job_tenure": job_tenure,
-    #     "year": q["query_year"],
-    #     "dayoff_total": max_value,
-    #     "dayoff_take": restday.RestDay,
-    #     "dayoff_left": max(max_value - restday.RestDay, 0),
-    # }
-
 
 def handle_participation(q):
     deps = Department.objects.filter(name=q)
 
     resultset = Project.objects.none()
+    emps = Employee.objects.none()
     for dep in deps:
-        emps = dep.job_title.all()
-        for emp in emps:
-            resultset = resultset.union(emp.project_set.all())
+        emps = emps.union(dep.job_title.all())
+
+    for emp in emps:
+        resultset = resultset.union(emp.project_set.all())
+
+    resultset = resultset.order_by("-deadline")
 
     return resultset
